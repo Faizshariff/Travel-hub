@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import { Search } from './Components/Search'
+import { Search } from '../Components/Search'
 import React, { useEffect, useState } from 'react'
 import {  Getplaces,  getweather } from './api/indexapi'
-import { List } from './Components/List'
-import { Gmap } from './Components/Gmap'
+import { List } from '../Components/List'
+import { Gmap } from '../Components/Gmap'
 import axios from 'axios'
 
 // props

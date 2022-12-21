@@ -30,6 +30,8 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
   const [details , Setdetails] = useState(false);
   const [carddetails , Setcarddetails] = useState<any | null>(null);
 
+  const img = [`Restaurents`,`TRAVEL`,`hotels`,`Food`, `FOOD` , `RESTAURENT`,`HOTEL`,`hotel`,`travel`,`restaurent`,`monuments`] ;
+  const i = Math.floor(Math.random() * 12);
 
     return (
      
@@ -48,7 +50,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
              sm:'0vw',
         },
         }} >
-          <button onClick={()=> { Setdisplay(true); Settype('restaurants') } }>
+          <button onClick={()=> { Setdisplay(true); Settype('restaurants') ;  } }>
           <Image src={icon1} className="icon-img relative left-6"  alt={"restaurent"} ></Image>
           <p className="cat-txt" >RESTAURENTS</p>
           </button>
@@ -66,7 +68,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
           justifyContent: 'center',
           alignItems:'center'
         }}>
-        <button onClick={()=>  { Setdisplay(true); Settype('attractions') }}>
+        <button onClick={()=>  { Setdisplay(true); Settype('attractions'); }}>
           <Image  src={icon3} className="icon-img relative left-6" alt={"attractions"} ></Image>
           <p className="cat-txt" > ATTRACTIONS</p>
           </button>
@@ -80,7 +82,10 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
             {isLoading ? <CircularProgress className='left-40p absolute top-15p' color="inherit" /> :  places?.map((   place  : any, i : number ) => (
               <button   key={place.location_id} onClick={()=> { Setdetails(true) ; Setcarddetails(place);    } }>
         <Grid id={`section${i}`} className='ml-8 sm:ml-24  p-b-5vh'>
-      <img className='h-48 sm:h-96 w-80vw-card lg:w-4/5' src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}  alt="card-image" />
+          <div className='h-48 sm:h-96 w-80vw-card lg:w-4/5 relative'>
+        <Image  src={place.photo ? place.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  layout="fill"
+      objectFit="cover" />
+      </div>
          <h1 className='mt-6 font-semibold mb-4'>{place.name}</h1> 
          <Box display="flex " justifyContent="space-between" my={2}>
           <Rating name="read-only" value={Number(place.rating)} readOnly />
@@ -124,9 +129,9 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
 
 <h1 className='text-xl' >{weather.location.name},{weather.location.region}</h1> 
        <h3 className='text-lg' >{weather.location.country}</h3>
-
-       <img className='block ml-auto mr-auto w-30p' src={weather.current.condition.icon} />
-       
+       <div className='block ml-auto mr-auto w-30p relative'>
+       <Image className='block ml-auto mr-auto w-300p relative' width={150} height={150} src={`https:${weather.current.condition.icon}`} alt=''/>
+       </div>
        <h1 className='text-2xl pb-4 pt-4  font-semibold'>{weather.current.temp_c}°C</h1>
        <h1>{weather.current.condition.text}</h1>
         
@@ -150,7 +155,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
         <Grid item xs={4} sx={{
          
         }} >
-          <button onClick={()=>  { Setdisplay(true); Settype('restaurants') } }>
+          <button onClick={()=>  { Setdisplay(true); Settype('restaurants') ;  } }>
           <Image src={icon1} className="icon-img"  alt={"restaurent"} ></Image>
           <p className="cat-txt " >RESTAURENTS</p>
           </button>
@@ -158,7 +163,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
         <Grid item xs={4} sx={{
          marginLeft : 2,
         }} >
-          <button onClick={()=> { Setdisplay(true); Settype('attractions') }}>
+          <button onClick={()=> { Setdisplay(true); Settype('attractions');  }}>
           <Image src={icon3} className="icon-img"  alt={"restaurent"} ></Image>
           <p className="cat-txt " > ATTRACTIONS</p>
           </button>
@@ -173,16 +178,42 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
         <>
             { isLoading ? <CircularProgress className='left-40p absolute top-15p' color="inherit" /> : places?.map((   place  : any, i : number ) => (
  <button   key={place.location_id} onClick={()=> { Setdetails(true) ; Setcarddetails(place) ;  }}>
-     <Grid  id={`sectionpc${i}`}  className='ml-8 p-b-10vh '  >
-      <img className='h-48 w-96' src={place.photo ? place.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}  alt="card-image" />
+     <Grid  id={`sectionpc${i}`}  className='ml-4 p-b-10vh'  >
+      <div className='h-40 w-72 relative' >
+     <Image  src={place.photo ? place.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  layout="fill"
+      objectFit="cover" />
+    </div>
          <h1 className='mt-6 font-semibold mb-4'>{place.name}</h1> 
          <Box display="flex " justifyContent="space-between" my={2}>
           <Rating name="read-only" value={Number(place.rating)} readOnly />
-          <Typography component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
+          <Typography sx={{
+            marginRight :{
+              lg:'1vw'            
+          },
+          fontSize:{
+            lg:'1.1vw'
+          }
+          }}  component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
         </Box>
         <Box display="flex " justifyContent="space-between">
-          <Typography component="legend">PRICING</Typography>
-          <Typography gutterBottom variant="subtitle1">
+          <Typography 
+          sx={{
+            marginRight :{
+              lg:'1vw'            
+          },
+          fontSize:{
+            lg:'1.1vw'
+          }
+          }} component="legend">PRICING</Typography>
+          <Typography 
+          sx={{
+            marginRight :{
+              lg:'1.5vw'            
+          },
+          fontSize:{
+            lg:'1.1vw'
+          }
+          }} gutterBottom variant="subtitle1">
             {place.price_level}
           </Typography>
         </Box>
@@ -208,9 +239,9 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
 
 <h1 className='text-xl' >{weather.location.name},{weather.location.region}</h1> 
     <h3 className='text-lg' >{weather.location.country}</h3>
-
-    <img className='block ml-auto mr-auto w-30p' src={weather.current.condition.icon} />
-    
+    <div className='block ml-auto mr-auto w-30p relative'>
+    <Image className='block ml-auto mr-auto w-300p ' width={150} height={150} src={`https:${weather.current.condition.icon}`}   alt='as' />
+    </div>
     <h1 className='text-2xl pb-4 pt-4  font-semibold'>{weather.current.temp_c}°C</h1>
     <h1>{weather.current.condition.text}</h1>
      

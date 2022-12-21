@@ -4,19 +4,26 @@ import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TagIcon from '@mui/icons-material/Tag';
 import LanguageIcon from '@mui/icons-material/Language';
+import Image from 'next/image';
 
-function Details( carddetails : any ,  crossbtn : any  ) {
+function Details( carddetails : any ,  ) {
+
+  const img = [`Restaurents`,`TRAVEL`,`hotels`,`Food`, `FOOD` , `RESTAURENT`,`HOTEL`,`hotel`,`travel`,`restaurent`,`monuments`] ;
+  const i = Math.floor(Math.random() * 12);
 
     return (
         <>
-        <div className='details-mob sm:details-tab  lg:details-pc w-full top-0 fixed backdrop-blur-3xl p-8  bg-white'  > 
+        <div className='details-mob sm:details-tab lg:details-pc w-full top-0 fixed backdrop-blur-3xl p-8  bg-white'  > 
      {carddetails && 
      <>
      <h1 className='pt-10 sm:pt-12 lg:pt-0 pb-4 sm:pb-1 lg:pb-2  pl-24 sm:pl-64 lg:pl-4 w-full lg:w-10/12 text-xl font-medium'>
      {carddetails.carddetails.name}
      </h1>
      <br/>
-     <img className='h-56 w-96 pb-4 sm:pb-2 lg:pb-6 ml-0 sm:ml-44 lg:ml-0' src={carddetails.carddetails.photo ? carddetails.carddetails.photo.images.large.url : 'https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg'}  alt="card-image" />
+     <div className='h-56 w-96 pb-4 sm:pb-2 lg:pb-6 ml-0 sm:ml-44 lg:ml-0  relative'>
+     <Image  src={carddetails.carddetails.photo ? carddetails.carddetails.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  layout="fill"
+      objectFit="cover" />
+     </div>
      <Box display="flex " justifyContent="space-between" sx={{
         marginY : {
           xs: 3,
@@ -167,7 +174,7 @@ function Details( carddetails : any ,  crossbtn : any  ) {
           <Typography sx={{ fontSize :{lg:'2vh' }  , }} gutterBottom variant="subtitle1" style={{
             paddingLeft : '5vw'
           }}>
-            <a href={carddetails.carddetails.web_url}  target="_blank" >VISIT LINK</a> 
+            <a href={carddetails.carddetails.web_url}  target="_blank"  rel="noopener noreferrer" >VISIT LINK</a> 
           </Typography>
         </Box>
      </>
