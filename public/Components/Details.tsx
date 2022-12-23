@@ -1,4 +1,5 @@
 import React from 'react'
+import '../styles.css'
 import {  Box, CircularProgress, Grid, Rating, Typography  } from "@mui/material";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';

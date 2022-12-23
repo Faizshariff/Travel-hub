@@ -1,10 +1,11 @@
 import Head from 'next/head'
-import { Search } from '../Components/Search'
+import { Search } from '../public/Components/Search'
 import React, { useEffect, useState } from 'react'
 import {  Getplaces,  getweather } from './api/indexapi'
-import { List } from '../Components/List'
-import { Gmap } from '../Components/Gmap'
+import { List } from '../public/Components/List'
+import { Gmap } from '../public/Components/Gmap'
 import axios from 'axios'
+import '../styles.css'
 
 // props
 
@@ -186,8 +187,7 @@ useEffect(()=>{
       <Head>
         <title>TRAVEL HUB</title>
       </Head>
-      <div className='text-center'>hi im faiz</div>
-      <main id='main-container-app' >
+      <main >
         <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse" >
         <Search  autoaddress={autoaddress} empty={empty} Setempty={Setempty} result={result} suggester={ suggester  } handleChanges={handleChanges}  handleClick={handleClick}  Setresult={Setresult} />
         <Gmap places={places} userlat={userlat} userlong={userlong} status={status} />

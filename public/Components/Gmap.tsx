@@ -5,8 +5,9 @@
  import  user from './user.png'
  import destination from './destination.png'
  import 'mapbox-gl/dist/mapbox-gl.css'; 
- import { getdirections } from '../pages/api/indexapi';
+ import { getdirections } from '../../pages/api/indexapi';
 import {  CircularProgress } from "@mui/material";
+import '../styles.css'
 
 
  
