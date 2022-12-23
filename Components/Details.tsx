@@ -20,10 +20,7 @@ function Details( carddetails : any ,  ) {
      {carddetails.carddetails.name}
      </h1>
      <br/>
-     <div className='h-56 w-96 pb-4 sm:pb-2 lg:pb-6 ml-0 sm:ml-44 lg:ml-0  relative'>
-     <Image  src={carddetails.carddetails.photo ? carddetails.carddetails.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  layout="fill"
-      objectFit="cover" />
-     </div>
+     <Image className='h-56 w-96 pb-4 sm:pb-2 lg:pb-6 ml-0 sm:ml-44 lg:ml-0'  src={carddetails.carddetails.photo ? carddetails.carddetails.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt="" width={400} height={50}  priority />
      <Box display="flex " justifyContent="space-between" sx={{
         marginY : {
           xs: 3,

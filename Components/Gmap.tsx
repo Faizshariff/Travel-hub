@@ -31,36 +31,40 @@ import {  CircularProgress } from "@mui/material";
    const [location,Setlocation] = useState<any>(null);
    const [mapState, SetmapState] = useState(true)
  
-   
-   useEffect(() => {
-     getdirections(userlat, userlong, destlat, destlong)
-       .then((dataset) => {
-         Setlocationiq(dataset);
-         if (locationiq && destlat && destlong) {
-           const coordinates : any = locationiq.routes[0].legs[0].steps
-             .map((element: any) => element.maneuver.location)
-             .filter((notUndefined: any) => notUndefined !== undefined)
-           const geojson = {
-             type: 'FeatureCollection',
-             features: [
-               {
-                 type: 'Feature',
-                 geometry: {
-                   type: 'LineString',
-                   coordinates : coordinates// <-- use the transformed array here
-                 }
-               }
-             ]
-           };
-   
-           Setlocation(geojson);
-         }
-       })
-       .catch((error) => {
-         console.log(error);
-       });
-   }, [destlat, destlong, location]);
-   
+   useEffect(()=> {
+    handleClick3()
+   },[destlat , destlong])
+
+  
+
+   const handleClick3 = () => {
+    getdirections(userlat , userlong , destlat, destlong)
+      .then((dataset) => {
+        Setlocationiq(dataset);
+        if (locationiq && destlat  && destlong && userlat   && userlong  ) {
+          const coordinates : any = locationiq.routes[0].legs[0].steps
+            .map((element: any) => element.maneuver.location)
+            .filter((notUndefined: any) => notUndefined !== undefined)
+          const geojson = {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                geometry: {
+                  type: 'LineString',
+                  coordinates : coordinates// <-- use the transformed array here
+                }
+              }
+            ]
+          };
+  
+          Setlocation(geojson);
+        }
+      })
+  }
+  
+
+
  
    const layerStyle : any= {
      id: 'point',
@@ -91,6 +95,7 @@ import {  CircularProgress } from "@mui/material";
     }
   };
 
+
  
    return(
  <>
@@ -118,7 +123,7 @@ import {  CircularProgress } from "@mui/material";
       onClick={()=> { SetmapState(!mapState)}} >
          <Image className='h-20 w-20' src={user} alt={'user'} priority />
      </Marker>
-     <Source  id="my-data" type="geojson" data={location}>
+     <Source  id="my-data" type="geojson"  data={location}>
        <Layer className="fixed " {...layerStyle} />
      </Source>
     
@@ -134,7 +139,6 @@ import {  CircularProgress } from "@mui/material";
              Setdestlat(place.latitude)
              handleClickScroll(i)
              handleClickScroll2(i)
-             console.log(i)
            }}>
              <div className='h-24 w-20 backdrop-blur-3xl opacity-85 popup-div rounded-md  mb-4 text-center '>
              <h1 className='p-2 text-popup-div'>{place.name}</h1>

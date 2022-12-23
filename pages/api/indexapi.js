@@ -50,18 +50,32 @@ export const getweather = async ( lat , long) => {
 }
 
 
-
-export const getdirections  = async (  userlat   , userlong  , destlat   , destlong  )  => { 
-
-  const directionurl  = `https://us1.locationiq.com/v1/directions/driving/${userlong},${userlat};${destlong},${destlat}?key=${process.env.NEXT_PUBLIC_REACT_APP_LOCATIONIQ_API_KEY_SECURE}&steps=true&alternatives=true&geometries=polyline&overview=full` ;
- 
-  return await  axios.get(directionurl).then(function (response) {
-    return response.data ;
-  }).catch(function (error) {
+export const getdirections = async (userlat   , userlong  , destlat   , destlong) => {
+  if(destlat == null ||  destlong == null || userlat == null || userlong == null){
+    alert('Destination coordinates are not set!');
+  }
+  else{
+  try {
+    const res = await axios.get(
+      `https://us1.locationiq.com/v1/directions/driving/${userlong},${userlat};${destlong},${destlat}`,
+      {
+        params: {
+          key: process.env.NEXT_PUBLIC_REACT_APP_LOCATIONIQ_API_KEY_SECURE,
+          steps: true,
+          alternatives: true,
+          geometries: 'polyline',
+          overview: 'full'
+        }
+      }
+    );
+    return res.data;
+  } catch (error) {
     console.error(error);
-  });
-
+  }
 }
+};
+
+
 
 
 

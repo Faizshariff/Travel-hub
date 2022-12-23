@@ -82,10 +82,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
             {isLoading ? <CircularProgress className='left-40p absolute top-15p' color="inherit" /> :  places?.map((   place  : any, i : number ) => (
               <button   key={place.location_id} onClick={()=> { Setdetails(true) ; Setcarddetails(place);    } }>
         <Grid id={`section${i}`} className='ml-8 sm:ml-24  p-b-5vh'>
-          <div className='h-48 sm:h-96 w-80vw-card lg:w-4/5 relative'>
-        <Image  src={place.photo ? place.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  layout="fill"
-      objectFit="cover" />
-      </div>
+        <Image  className='h-48 sm:h-96 w-80vw-card lg:w-4/5 ' src={place.photo ? place.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt="" width={400} height={50}  priority />
          <h1 className='mt-6 font-semibold mb-4'>{place.name}</h1> 
          <Box display="flex " justifyContent="space-between" my={2}>
           <Rating name="read-only" value={Number(place.rating)} readOnly />
@@ -179,10 +176,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
             { isLoading ? <CircularProgress className='left-40p absolute top-15p' color="inherit" /> : places?.map((   place  : any, i : number ) => (
  <button   key={place.location_id} onClick={()=> { Setdetails(true) ; Setcarddetails(place) ;  }}>
      <Grid  id={`sectionpc${i}`}  className='ml-4 p-b-10vh'  >
-      <div className='h-40 w-72 relative' >
-     <Image  src={place.photo ? place.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  layout="fill"
-      objectFit="cover" />
-    </div>
+     <Image  className='h-40 w-72 ' src={place.photo ? place.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt=""  width={400} height={50}  priority/>
          <h1 className='mt-6 font-semibold mb-4'>{place.name}</h1> 
          <Box display="flex " justifyContent="space-between" my={2}>
           <Rating name="read-only" value={Number(place.rating)} readOnly />
