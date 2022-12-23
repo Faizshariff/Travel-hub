@@ -7,7 +7,6 @@
  import 'mapbox-gl/dist/mapbox-gl.css'; 
  import { getdirections } from '../../pages/api/indexapi';
 import {  CircularProgress } from "@mui/material";
-import '../styles.css'
 
 
  

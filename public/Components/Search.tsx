@@ -3,7 +3,6 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { Grid } from '@mui/material';
 import { useMap} from 'react-map-gl';
 import React from 'react'
-import '../styles.css'
 
 export interface Props {
   result: string ;

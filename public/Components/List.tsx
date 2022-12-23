@@ -7,7 +7,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import icon1 from './icon-1.png'
 import icon3 from './icon-3.png'
 import Details from './Details';
-import '../styles.css'
 
 
 type Props = {

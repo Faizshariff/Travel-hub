@@ -5,7 +5,6 @@ import {  Getplaces,  getweather } from './api/indexapi'
 import { List } from '../public/Components/List'
 import { Gmap } from '../public/Components/Gmap'
 import axios from 'axios'
-import '../styles.css'
 
 // props
 
