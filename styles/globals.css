@@ -17,6 +17,8 @@ a {
   text-decoration: none;
 }
 
+
+
 * {
   box-sizing: border-box;
   font-family: 'Chakra Petch', sans-serif;
@@ -42,6 +44,9 @@ a {
 
 
 @layer utilities {
+  #main-container-app{
+    display :none
+  }
   #page{
     height: 100vh;
     width: 100vw;

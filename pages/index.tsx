@@ -182,10 +182,12 @@ useEffect(()=>{
 
   return (
     <>
+   
       <Head>
         <title>TRAVEL HUB</title>
       </Head>
-      <main >
+      <div className='text-center'>hi im faiz</div>
+      <main id='main-container-app' >
         <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse" >
         <Search  autoaddress={autoaddress} empty={empty} Setempty={Setempty} result={result} suggester={ suggester  } handleChanges={handleChanges}  handleClick={handleClick}  Setresult={Setresult} />
         <Gmap places={places} userlat={userlat} userlong={userlong} status={status} />
