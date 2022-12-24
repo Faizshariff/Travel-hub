@@ -15,7 +15,7 @@ export interface Props {
    }
 
   
-export default function Autocomplete  (   { suggestion  } : any , Searchlocation : Function  )   {
+function Autocomplete  (   { suggestion  } : any , Searchlocation : Function  )   {
 
 const handle = () => {
   console.log(suggestion.lat , suggestion.lon);
@@ -31,5 +31,6 @@ const handle = () => {
     )
 }
 
+export default Autocomplete
 
 

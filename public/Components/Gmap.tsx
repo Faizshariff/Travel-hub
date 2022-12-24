@@ -23,7 +23,7 @@ import {  CircularProgress } from "@mui/material";
  
    
  
- export default function Gmap  ({  userlat , userlong , status , places}  : locationprops )  {
+function Gmap  ({  userlat , userlong , status , places}  : locationprops )  {
  
    const [destlat, Setdestlat] = useState<any | null>(null);
    const [destlong ,Setdestlong] = useState<any | null>(null);
@@ -160,3 +160,6 @@ import {  CircularProgress } from "@mui/material";
    )
  }
 
+
+
+ export default Gmap

@@ -6,7 +6,7 @@ import TagIcon from '@mui/icons-material/Tag';
 import LanguageIcon from '@mui/icons-material/Language';
 import Image from 'next/image';
 
-export default function Details( carddetails : any ,  ) {
+function Details( carddetails : any ,  ) {
 
   const img = [`Restaurents`,`TRAVEL`,`hotels`,`Food`, `FOOD` , `RESTAURENT`,`HOTEL`,`hotel`,`travel`,`restaurent`,`monuments`] ;
   const i = Math.floor(Math.random() * 12);
@@ -183,3 +183,4 @@ export default function Details( carddetails : any ,  ) {
 
 
 
+export default Details

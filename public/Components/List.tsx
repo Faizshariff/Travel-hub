@@ -23,7 +23,7 @@ type Props = {
 
 
 
-export default function List  ({isLoading , places , display , weather , wload , Setdisplay , Settype }:Props)  {
+function List  ({isLoading , places , display , weather , wload , Setdisplay , Settype }:Props)  {
 
 
   const [open,Setopen] = useState(false);
@@ -278,3 +278,4 @@ export default function List  ({isLoading , places , display , weather , wload ,
   
 }
 
+export default List
