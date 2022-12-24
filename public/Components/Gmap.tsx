@@ -23,7 +23,7 @@ import {  CircularProgress } from "@mui/material";
  
    
  
- export const Gmap = ({  userlat , userlong , status , places}  : locationprops ) => {
+ export default function Gmap  ({  userlat , userlong , status , places}  : locationprops )  {
  
    const [destlat, Setdestlat] = useState<any | null>(null);
    const [destlong ,Setdestlong] = useState<any | null>(null);
@@ -38,7 +38,7 @@ import {  CircularProgress } from "@mui/material";
     else{
     handleClick3()
     }
-   },[destlat , destlong])
+   },[destlat , destlong , userlat , userlong])
 
   
 
@@ -47,7 +47,7 @@ import {  CircularProgress } from "@mui/material";
       .then((dataset) => {
         Setlocationiq(dataset);
         if (locationiq && destlat  && destlong && userlat   && userlong  ) {
-          const coordinates : any = locationiq.routes[0].legs[0].steps
+          const coordinates : any = locationiq?.routes?.[0]?.legs?.[0]?.steps
             .map((element: any) => element.maneuver.location)
             .filter((notUndefined: any) => notUndefined !== undefined)
           const geojson = {
@@ -57,7 +57,7 @@ import {  CircularProgress } from "@mui/material";
                 type: 'Feature',
                 geometry: {
                   type: 'LineString',
-                  coordinates : coordinates// <-- use the transformed array here
+                  coordinates : coordinates
                 }
               }
             ]

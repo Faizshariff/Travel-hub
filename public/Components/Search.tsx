@@ -20,7 +20,7 @@ export interface Props {
 
   
 
-export const Search = ( {   result ,  handleChanges , suggester , handleClick  , Setempty , empty , autoaddress } :Props) => {
+export default function Search  ( {   result ,  handleChanges , suggester , handleClick  , Setempty , empty , autoaddress } :Props)  {
 
 
   const { myMapA } : any = useMap()  ;

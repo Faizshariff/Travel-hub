@@ -1,14 +1,10 @@
 import Head from 'next/head'
-import { Search } from '../public/Components/Search'
+import  Search  from '../public/components/Search'
 import React, { useEffect, useState } from 'react'
 import {  Getplaces,  getweather } from './api/indexapi'
-import { List } from '../public/Components/List'
-import { Gmap } from '../public/Components/Gmap'
+import  List  from '../public/components/List'
+import Gmap from '../public/components/Gmap'
 import axios from 'axios'
-
-// props
-
-
 
 
  // AUTO COMPLETE FETCH REQUEST
@@ -27,7 +23,7 @@ import axios from 'axios'
     return data;
   }
   catch(e){
-    console.log(e);
+    return null
   }
 }
 }
@@ -103,18 +99,6 @@ useEffect(() => {
 }, [])
 
 
-/*
-
-
-   Setlat(position.coords.latitude);
-      Setlong(position.coords.longitude);
-      Setuserlat(position.coords.latitude);
-      Setuserlong(position.coords.longitude);
-      Setstatus(true)
-
-
-
-*/
 
   // AUTO COMPLETE ONCLICK FUNCTION
 function handleClick( lattitude : any , longitude : any ) {
@@ -148,7 +132,7 @@ useEffect(() => {
 // useEffect to call auto complete api
   useEffect(()=> {
     Autocomplete().then(( data ) : any => {
-      Setsuggester(data);
+        Setsuggester(data);
     })
     }, [result])
 
@@ -175,19 +159,14 @@ useEffect(()=>{
 
 
 
-//Location Access function
-
-
-
 
   return (
     <>
       <Head>
         <title>TRAVEL HUB</title>
       </Head>
-      <div className='text-center text-red-700'>yo what up biatch</div>
-      <main id='main-content-hide' >
-        <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse" >
+      <main  >
+      <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse" >
         <Search  autoaddress={autoaddress} empty={empty} Setempty={Setempty} result={result} suggester={ suggester  } handleChanges={handleChanges}  handleClick={handleClick}  Setresult={Setresult} />
         <Gmap places={places} userlat={userlat} userlong={userlong} status={status} />
      <List wload={wload} Settype={Settype} Setdisplay={Setdisplay} display={display} weather={weather} isLoading={isLoading} places={places}  />

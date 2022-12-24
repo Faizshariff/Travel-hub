@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import React from 'react'
+import '../../pages'
 
 
 export interface Props {
@@ -14,7 +15,7 @@ export interface Props {
    }
 
   
-export const Autocomplete = (   { suggestion  } : any , Searchlocation : Function  )  => {
+export default function Autocomplete  (   { suggestion  } : any , Searchlocation : Function  )   {
 
 const handle = () => {
   console.log(suggestion.lat , suggestion.lon);

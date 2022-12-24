@@ -93,6 +93,7 @@ a {
     opacity: 0.96;
     border-radius: 8px;
     z-index: 1;
+    position: fixed;
   }
 
  
