@@ -182,11 +182,11 @@ useEffect(()=>{
 
   return (
     <>
-   
       <Head>
         <title>TRAVEL HUB</title>
       </Head>
-      <main >
+      <div className='text-center text-red-700'>yo what up biatch</div>
+      <main id='main-content-hide' >
         <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse" >
         <Search  autoaddress={autoaddress} empty={empty} Setempty={Setempty} result={result} suggester={ suggester  } handleChanges={handleChanges}  handleClick={handleClick}  Setresult={Setresult} />
         <Gmap places={places} userlat={userlat} userlong={userlong} status={status} />
@@ -194,7 +194,5 @@ useEffect(()=>{
       </div>
       </main>  
         </>
-
-
   );
 }

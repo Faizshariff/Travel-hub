@@ -51,10 +51,7 @@ export const getweather = async ( lat , long) => {
 
 
 export const getdirections = async (userlat   , userlong  , destlat   , destlong) => {
-  if(destlat == null ||  destlong == null || userlat == null || userlong == null){
-    alert('Destination coordinates are not set!');
-  }
-  else{
+ 
   try {
     const res = await axios.get(
       `https://us1.locationiq.com/v1/directions/driving/${userlong},${userlat};${destlong},${destlat}`,
@@ -72,7 +69,6 @@ export const getdirections = async (userlat   , userlong  , destlat   , destlong
   } catch (error) {
     console.error(error);
   }
-}
 };
 
 

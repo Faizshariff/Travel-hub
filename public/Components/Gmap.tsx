@@ -32,7 +32,12 @@ import {  CircularProgress } from "@mui/material";
    const [mapState, SetmapState] = useState(true)
  
    useEffect(()=> {
+    if(destlat == null ||  destlong == null || userlat == null || userlong == null){
+      return ;
+    }
+    else{
     handleClick3()
+    }
    },[destlat , destlong])
 
   
@@ -116,8 +121,6 @@ import {  CircularProgress } from "@mui/material";
       :  "mapbox://styles/mapbox/navigation-night-v1"
     }
    >
- 
- 
       <Marker style={{ position: 'fixed'}}
       key={`${userlong}, ${userlat}`} longitude={userlong} latitude={userlat} anchor="bottom"
       onClick={()=> { SetmapState(!mapState)}} >

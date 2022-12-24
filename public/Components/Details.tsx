@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Box, CircularProgress, Grid, Rating, Typography  } from "@mui/material";
+import {  Box, Rating, Typography  } from "@mui/material";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TagIcon from '@mui/icons-material/Tag';
@@ -37,7 +37,7 @@ function Details( carddetails : any ,  ) {
           },
      }}>
      <Rating sx={{ fontSize:{ lg:'1.1rem' } }} name="read-only" value={Number(carddetails.carddetails.rating)} readOnly />
-     <Typography  sx={{ fontSize :{lg:'2vh' }  , }} component="legend">{carddetails.carddetails.num_reviews} review{carddetails.carddetails.num_reviews > 1 && 's'}</Typography>
+     <Typography  sx={{ fontSize :{lg:'2vh' }  , }} component="legend">{carddetails.carddetails.num_reviews}Review{carddetails.carddetails.num_reviews > 1 && 's'}</Typography>
    </Box>
    <Box display="flex " justifyContent="space-between" sx={{
           marginY : {
@@ -54,7 +54,7 @@ function Details( carddetails : any ,  ) {
             xl: 1,
           }
      }}>
-          <Typography sx={{ fontSize :{lg:'2vh' }  , }}  component="legend">PRICING</Typography>
+          <Typography sx={{ fontSize :{lg:'2vh' }  , }}  component="legend">Pricing</Typography>
           <Typography sx={{ fontSize :{lg:'2vh' }  , }}  gutterBottom variant="subtitle1">
             {carddetails.carddetails.price_level}
           </Typography>

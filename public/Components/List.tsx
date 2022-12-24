@@ -91,10 +91,10 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
               xs:'5vw',
               sm: '1vw',              
           }
-          }}  component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
+          }}  component="legend">{place.num_reviews}Review{place.num_reviews > 1 && 's'}</Typography>
         </Box>
         <Box display="flex " justifyContent="space-between">
-          <Typography component="legend">PRICING</Typography>
+          <Typography component="legend">Pricing</Typography>
           <Typography sx={{
             marginRight :{
               xs:'5vw',
@@ -187,7 +187,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
           fontSize:{
             lg:'1.1vw'
           }
-          }}  component="legend">{place.num_reviews} review{place.num_reviews > 1 && 's'}</Typography>
+          }}  component="legend">{place.num_reviews}Review{place.num_reviews > 1 && 's'}</Typography>
         </Box>
         <Box display="flex " justifyContent="space-between">
           <Typography 
@@ -198,7 +198,7 @@ export const List = ({isLoading , places , display , weather , wload , Setdispla
           fontSize:{
             lg:'1.1vw'
           }
-          }} component="legend">PRICING</Typography>
+          }} component="legend">Pricing</Typography>
           <Typography 
           sx={{
             marginRight :{
