@@ -73,41 +73,22 @@ const [empty,Setempty] = useState (true);
 
 
 // useEffect to GET Current location
-useEffect(() => {
-  const getUserCoordinates = async () => {
-    if (!navigator.geolocation) {
-      console.log('Geolocation API is not available in your browser!');
-      return;
-    }
+const getUserCoordinates = async () => {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      Setlat(position.coords.latitude);
+      Setlong(position.coords.longitude);
+      Setuserlat(position.coords.latitude);
+      Setuserlong(position.coords.longitude);
+      Setstatus(true)
+    },
+  )}
 
-    const positionOptions = { enableHighAccuracy: true };
+  useEffect(() => {
+    getUserCoordinates()
+    } , [])
+      
 
-    try {
-      const permission = await navigator.permissions.query({ name: 'geolocation' });
-      if (permission.state === 'granted') {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            Setlat(position.coords.latitude);
-            Setlong(position.coords.longitude);
-            Setuserlat(position.coords.latitude);
-            Setuserlong(position.coords.longitude);
-            Setstatus(true)
-          },
-          (error) => {
-            console.log('Something went wrong getting your position!');
-          },
-          positionOptions
-        );
-      } else {
-        console.log('Permission to access location was denied.');
-      }
-    } catch (error) {
-      console.log('Geolocation API is not available in your browser!');
-    }
-  };
-
-  getUserCoordinates();
-}, []);
 
 /*
 
