@@ -4,6 +4,7 @@ import { Grid } from '@mui/material';
 import { useMap} from 'react-map-gl';
 import React from 'react'
 
+
 export interface Props {
   result: string ;
     Setresult:any;
@@ -20,7 +21,7 @@ export interface Props {
 
   
 
-function Search  ( {   result ,  handleChanges , suggester , handleClick  , Setempty , empty , autoaddress } :Props)  {
+  export const Search = ( {   result ,  handleChanges , suggester , handleClick  , Setempty , empty , autoaddress } :Props) => {
 
 
   const { myMapA } : any = useMap()  ;
@@ -67,4 +68,4 @@ function Search  ( {   result ,  handleChanges , suggester , handleClick  , Sete
 
 
 
-export default Search
+

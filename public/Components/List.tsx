@@ -6,7 +6,8 @@ import Image from 'next/image'
 import CloseIcon from '@mui/icons-material/Close';
 import icon1 from './icon-1.png'
 import icon3 from './icon-3.png'
-import Details from './Details';
+import { Details } from './Details';
+
 
 
 type Props = {
@@ -22,8 +23,7 @@ type Props = {
 
 
 
-
-function List  ({isLoading , places , display , weather , wload , Setdisplay , Settype }:Props)  {
+  export const List = ({isLoading , places , display , weather , wload , Setdisplay , Settype }:Props) => {
 
 
   const [open,Setopen] = useState(false);
@@ -278,4 +278,3 @@ function List  ({isLoading , places , display , weather , wload , Setdisplay , S
   
 }
 
-export default List

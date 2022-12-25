@@ -9,6 +9,7 @@
 import {  CircularProgress } from "@mui/material";
 
 
+
  
  
  export interface locationprops {
@@ -23,7 +24,7 @@ import {  CircularProgress } from "@mui/material";
  
    
  
-function Gmap  ({  userlat , userlong , status , places}  : locationprops )  {
+  export const Gmap = ({  userlat , userlong , status , places}  : locationprops ) => {
  
    const [destlat, Setdestlat] = useState<any | null>(null);
    const [destlong ,Setdestlong] = useState<any | null>(null);
@@ -162,4 +163,4 @@ function Gmap  ({  userlat , userlong , status , places}  : locationprops )  {
 
 
 
- export default Gmap
+

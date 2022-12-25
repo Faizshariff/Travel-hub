@@ -3,6 +3,7 @@ import React from 'react'
 import '../../pages'
 
 
+
 export interface Props {
     suggestion :data;
     Searchlocation : Function;
@@ -15,7 +16,7 @@ export interface Props {
    }
 
   
-function Autocomplete  (   { suggestion  } : any , Searchlocation : Function  )   {
+export const Autocomplete =  (   { suggestion  } : any , Searchlocation : Function  )  => {
 
 const handle = () => {
   console.log(suggestion.lat , suggestion.lon);
@@ -31,6 +32,5 @@ const handle = () => {
     )
 }
 
-export default Autocomplete
 
 
