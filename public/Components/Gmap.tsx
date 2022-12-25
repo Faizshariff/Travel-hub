@@ -1,6 +1,7 @@
  import Image from 'next/image';
  import React from 'react';
  import  { useEffect, useState } from 'react'
+ import { useMemo, useCallback } from 'react';
  import {Map , Marker, Source, Layer } from 'react-map-gl';
  import  user from './user.png'
  import destination from './destination.png'
@@ -43,6 +44,28 @@ import {  CircularProgress } from "@mui/material";
 
   
 
+   const markerElements = useMemo(() => {
+    return places.map((place: any, i: number) => (
+      <Marker 
+        key={`${i}`}
+        longitude={place.longitude} latitude={place.latitude} 
+        anchor="center" 
+      >
+        <button onClick={() => {
+          Setdestlong(place.longitude)
+          Setdestlat(place.latitude)
+          handleClickScroll(i)
+          handleClickScroll2(i)
+        }}>
+          <div className='h-24 w-20 backdrop-blur-3xl opacity-85 popup-div rounded-md  mb-4 text-center '>
+            <h1 className='p-2 text-popup-div text-black'>{place.name}</h1>
+          </div>
+          <Image className="h-10 w-10" src={destination} alt="" priority />
+        </button>
+      </Marker>
+    ));
+  }, [places, Setdestlat, Setdestlong]);
+
    const handleClick3 = () => {
     getdirections(userlat , userlong , destlat, destlong)
       .then((dataset) => {
@@ -70,6 +93,21 @@ import {  CircularProgress } from "@mui/material";
   }
   
 
+  const handleClickScroll = (i : number) => {
+    const element = document.getElementById(`section${i}`);
+    if (element ) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const handleClickScroll2 = (i : number) => {
+    const element2 = document.getElementById(`sectionpc${i}`);
+    if (element2 ) {
+      element2.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
+
 
  
    const layerStyle : any= {
@@ -87,21 +125,6 @@ import {  CircularProgress } from "@mui/material";
    };
  
  
-
-   const handleClickScroll = (i : number) => {
-    const element = document.getElementById(`section${i}`);
-    if (element ) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-  const handleClickScroll2 = (i : number) => {
-    const element2 = document.getElementById(`sectionpc${i}`);
-    if (element2 ) {
-      element2.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-
  
    return(
  <>
@@ -130,29 +153,7 @@ import {  CircularProgress } from "@mui/material";
      <Source  id="my-data" type="geojson"  data={location}>
        <Layer className="fixed " {...layerStyle} />
      </Source>
-    
-     {places.map((place : any , i : number) =>
-     (
-       <Marker 
-       key={`${i}`}
-          longitude={place.longitude} latitude={place.latitude} 
-          anchor="center" 
-          >
-           <button onClick={()=>{
-             Setdestlong(place.longitude)
-             Setdestlat(place.latitude)
-             handleClickScroll(i)
-             handleClickScroll2(i)
-           }}>
-             <div className='h-24 w-20 backdrop-blur-3xl opacity-85 popup-div rounded-md  mb-4 text-center '>
-             <h1 className='p-2 text-popup-div'>{place.name}</h1>
-             </div>
-           <Image className="h-10 w-10" src={destination} alt="" priority />
-           </button>
-          </Marker>
-     ))}
- 
- 
+     {markerElements}
    </Map>
  </>
  : <CircularProgress className='left-40p absolute top-15p' color="inherit" /> }
@@ -160,7 +161,3 @@ import {  CircularProgress } from "@mui/material";
  </>
    )
  }
-
-
-
-

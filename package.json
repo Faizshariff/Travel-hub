@@ -28,6 +28,7 @@
     "promise": "^8.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-geolocated": "^4.0.3",
     "react-map-gl": "^7.0.19",
     "sharp": "^0.31.2",
     "tailwind-scrollbar": "^2.0.1",

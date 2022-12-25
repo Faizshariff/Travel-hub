@@ -89,10 +89,20 @@ const getUserCoordinates = async () => {
     } , [])
       
 
-
+ 
+  
 /*
 
-
+ if (isGeolocationAvailable && isGeolocationEnabled && coords) {
+        Setlat(coords.latitude);
+        Setlong(coords.longitude);
+        Setuserlat(coords.latitude);
+        Setuserlong(coords.longitude);
+        Setstatus(true);
+      }
+      else{
+        return
+      }
 
 */
 
