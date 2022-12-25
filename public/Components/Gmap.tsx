@@ -57,9 +57,8 @@ import {  CircularProgress } from "@mui/material";
           handleClickScroll(i)
           handleClickScroll2(i)
         }}>
-          <div className='h-24 w-20 backdrop-blur-3xl opacity-85 popup-div rounded-md  mb-4 text-center '>
-            <h1 className='p-2 text-popup-div text-black'>{place.name}</h1>
-          </div>
+         
+            <h1 className='text-red'>{place.num_reviews}Review{place.num_reviews > 1 && 's'}</h1>
           <Image className="h-10 w-10" src={destination} alt="" priority />
         </button>
       </Marker>
