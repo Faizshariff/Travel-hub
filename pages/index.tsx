@@ -74,30 +74,46 @@ const [empty,Setempty] = useState (true);
 
 // useEffect to GET Current location
 useEffect(() => {
-  const getUserCoordinates = () => {
+  const getUserCoordinates = async () => {
     if (!navigator.geolocation) {
-      console.log('Geolocation API is not available in your browser!')
-    } else {
-      const positionOptions = { enableHighAccuracy: true }
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          Setlat(position.coords.latitude);
-          Setlong(position.coords.longitude);
-          Setuserlat(position.coords.latitude);
-          Setuserlong(position.coords.longitude);
-          Setstatus(true)
-        },
-        (error) => {
-          console.log('Something went wrong getting your position!')
-        },
-        positionOptions
-      )
+      console.log('Geolocation API is not available in your browser!');
+      return;
     }
-  }
 
-  getUserCoordinates()
-}, [])
+    const positionOptions = { enableHighAccuracy: true };
 
+    try {
+      const permission = await navigator.permissions.query({ name: 'geolocation' });
+      if (permission.state === 'granted') {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            Setlat(position.coords.latitude);
+            Setlong(position.coords.longitude);
+            Setuserlat(position.coords.latitude);
+            Setuserlong(position.coords.longitude);
+            Setstatus(true)
+          },
+          (error) => {
+            console.log('Something went wrong getting your position!');
+          },
+          positionOptions
+        );
+      } else {
+        console.log('Permission to access location was denied.');
+      }
+    } catch (error) {
+      console.log('Geolocation API is not available in your browser!');
+    }
+  };
+
+  getUserCoordinates();
+}, []);
+
+/*
+
+
+
+*/
 
 
   // AUTO COMPLETE ONCLICK FUNCTION
