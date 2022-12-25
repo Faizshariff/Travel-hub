@@ -362,20 +362,4 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100vh;
     border-radius: 0px;
   }
-  .popup-div{
-    background: rgba(255, 255, 255, 0.7);
-    -webkit-backdrop-filter: blur(70px);
-backdrop-filter: blur(70px);
-opacity: 0.90;
-align-items: center;
-justify-content: center;
-  }
-  .text-popup-div{
-    word-wrap: break-word;
-  width: 80px;
-  }
-  
-  
 }
-
-

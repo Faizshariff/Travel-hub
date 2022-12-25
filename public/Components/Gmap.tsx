@@ -58,7 +58,7 @@ import {  CircularProgress } from "@mui/material";
           handleClickScroll2(i)
         }}>
          
-            <h1 className='text-red'>{place.num_reviews}Review{place.num_reviews > 1 && 's'}</h1>
+            <h1 className='text-red-600 p-2 bg-white'>{place.num_reviews}Review{place.num_reviews > 1 && 's'}</h1>
           <Image className="h-10 w-10" src={destination} alt="" priority />
         </button>
       </Marker>
