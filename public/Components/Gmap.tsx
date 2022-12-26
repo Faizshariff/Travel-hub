@@ -33,6 +33,7 @@ import {  CircularProgress } from "@mui/material";
    const [locationiq, Setlocationiq] = useState<any | null>([]);
    const [location,Setlocation] = useState<any>(null);
    const [mapState, SetmapState] = useState(true)
+   const [timeoutId, setTimeoutId] = useState<any | null>(null);
  
    useEffect(()=> {
     if(destlat == null ||  destlong == null || userlat == null || userlong == null){
@@ -96,8 +97,11 @@ import {  CircularProgress } from "@mui/material";
   const handleClickScroll = (i : number) => {
     const element = document.getElementById(`section${i}`);
     if (element ) {
-      element.scrollIntoView({behavior:"smooth", block: "start", inline : 'center'});
       Setmobile(true)
+      const newTimeoutId = setTimeout(() => {
+        element.scrollIntoView({behavior:"smooth"});
+      }, 2000);
+      setTimeoutId(newTimeoutId);
     }
   };
   const handleClickScroll2 = (i : number) => {
