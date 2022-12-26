@@ -66,6 +66,9 @@ const [long,Setlong] = useState<any | null>(null);
 //States of auto complete
 const [empty,Setempty] = useState (true);
 
+//States of mobile bar
+const [mobile,Setmobile] = useState(false);
+
 
 
 
@@ -157,10 +160,10 @@ useEffect(()=>{
         <title>TRAVEL HUB</title>
       </Head>
       <main  >
-      <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse" >
+      <div style={{ height: '100vh', width: '100vw' }} className="flex flex-col lg:flex-row-reverse " >
         <Search  autoaddress={autoaddress} empty={empty} Setempty={Setempty} result={result} suggester={ suggester  } handleChanges={handleChanges}  handleClick={handleClick}  Setresult={Setresult} />
-        <Gmap places={places} userlat={userlat} userlong={userlong} status={status} />
-     <List wload={wload} Settype={Settype} Setdisplay={Setdisplay} display={display} weather={weather} isLoading={isLoading} places={places}  />
+      <Gmap places={places} userlat={userlat} userlong={userlong} status={status}  Setmobile={Setmobile}   />
+      <List wload={wload} Settype={Settype} Setdisplay={Setdisplay} display={display} weather={weather} isLoading={isLoading} places={places} mobile={mobile} Setmobile={Setmobile} />
       </div>
       </main>  
         </>

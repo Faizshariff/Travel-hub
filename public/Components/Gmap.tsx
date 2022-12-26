@@ -1,7 +1,7 @@
  import Image from 'next/image';
  import React from 'react';
  import  { useEffect, useState } from 'react'
- import { useMemo, useCallback } from 'react';
+ import { useMemo } from 'react';
  import {Map , Marker, Source, Layer } from 'react-map-gl';
  import  user from './user.png'
  import destination from './destination.png'
@@ -17,7 +17,8 @@ import {  CircularProgress } from "@mui/material";
    status : any ;
    userlat : number;
    userlong : number; 
-   places : any
+   places : any;
+   Setmobile : any;
   }
  
  
@@ -25,7 +26,7 @@ import {  CircularProgress } from "@mui/material";
  
    
  
-  export const Gmap = ({  userlat , userlong , status , places}  : locationprops ) => {
+  export const Gmap = ({  userlat , userlong , status , places , Setmobile}  : locationprops ) => {
  
    const [destlat, Setdestlat] = useState<any | null>(null);
    const [destlong ,Setdestlong] = useState<any | null>(null);
@@ -58,7 +59,7 @@ import {  CircularProgress } from "@mui/material";
           handleClickScroll2(i)
         }}>
          
-            <h1 className='text-red-600 p-2 bg-white w-20 rounded-md'>{place.name}</h1>
+            <h1 className='text-red-600 p-2 bg-white w-24 rounded-md'>{place.name}</h1>
           <Image className="h-10 w-10" src={destination} alt="" priority />
         </button>
       </Marker>
@@ -95,7 +96,8 @@ import {  CircularProgress } from "@mui/material";
   const handleClickScroll = (i : number) => {
     const element = document.getElementById(`section${i}`);
     if (element ) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({behavior:"smooth", block: "start", inline : 'center'});
+      Setmobile(true)
     }
   };
   const handleClickScroll2 = (i : number) => {
@@ -132,12 +134,14 @@ import {  CircularProgress } from "@mui/material";
   <>
  <Map
  id="myMapA"
+
  interactive={true} 
      mapboxAccessToken={process.env.NEXT_PUBLIC_REACT_APP_MAPBOX_API_KEY_SECURE}
      initialViewState={{
        longitude: userlong,
        latitude: userlat,
        zoom: 18,
+       
      }}
      mapStyle={  
       mapState ?  "mapbox://styles/mapbox/streets-v12"

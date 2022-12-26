@@ -362,4 +362,8 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     height: 100vh;
     border-radius: 0px;
   }
+  .details-scroll{
+    max-height: 50vh !important;
+    padding-bottom: 10vh;
+  }
 }

@@ -18,12 +18,14 @@ type Props = {
     wload : boolean;
     Setdisplay : any;
     Settype : any ;
+    mobile : boolean;
+    Setmobile : any;
   };
 
 
 
 
-  export const List = ({isLoading , places , display , weather , wload , Setdisplay , Settype }:Props) => {
+  export const List = ({isLoading , places , display , weather , wload , Setdisplay , Settype , mobile , Setmobile }:Props) => {
 
 
   const [open,Setopen] = useState(false);
@@ -53,9 +55,9 @@ type Props = {
         <>
 
          <div  className=' responsive-show zindex lg:responsive-hide test-div'>     
-         <div className=" absolute left-0 list-mob-div" id={`${ open ? "mobbar-show" : "mobbar-hide" }`}  >
+         <div className=" absolute left-0 list-mob-div" id={`${ mobile ? "mobbar-show" : "mobbar-hide" }`}  >
          <div  className="zindex2">
-         <button  disabled={isDisabled} onClick={ () => { Setopen(!open); handleClick() }} id="mob-list-button" className="left-45vw md:left-50vw"  > { open ?  <NavigateNextIcon className="svg_icons2" /> : <ArrowLeftIcon className="svg_icons2" /> }</button>
+         <button  disabled={isDisabled} onClick={ () => { Setmobile(!mobile); handleClick() }} id="mob-list-button" className="left-45vw md:left-50vw"  > { mobile ?  <NavigateNextIcon className="svg_icons2" /> : <ArrowLeftIcon className="svg_icons2" /> }</button>
          <div className="mob-categories left-6vw sm:left-10vw ">
           <h6 className="pb-6 sm:pb-4 heading">CATEGORIES</h6>
         <Grid container  spacing={{ xs:1 , sm:6 }}>

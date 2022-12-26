@@ -17,11 +17,12 @@ export const Details = ( carddetails : any ,  ) => {
         <div className='details-mob sm:details-tab lg:details-pc w-full top-0 fixed backdrop-blur-3xl p-8  bg-white'  > 
      {carddetails && 
      <>
-     <h1 className='pt-10 sm:pt-12 lg:pt-0 pb-4 sm:pb-1 lg:pb-2  pl-24 sm:pl-64 lg:pl-4 w-full lg:w-10/12 text-xl font-medium'>
+     <h1 className='pt-10 sm:pt-12 lg:pt-0 pb-4 sm:pb-1 lg:pb-2  pl-20 sm:pl-60 lg:pl-4 w-full lg:w-10/12 text-xl font-medium'>
      {carddetails.carddetails.name}
      </h1>
      <br/>
-     <Image className='h-56 w-96 pb-4 sm:pb-2 lg:pb-6 ml-0 sm:ml-44 lg:ml-0'  src={carddetails.carddetails.photo ? carddetails.carddetails.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt="" width={400} height={50}  priority />
+     <Image className='h-56 w-96 pb-6 sm:pb-4 lg:pb-8 ml-0 sm:ml-44 lg:ml-0 '  src={carddetails.carddetails.photo ? carddetails.carddetails.photo.images.large.url : `https://source.unsplash.com/random/?${img[i]}/`}  alt="" width={400} height={50}  priority />
+     <Box className=' overflow-auto scrollbar-hide details-scroll' >
      <Box display="flex " justifyContent="space-between" sx={{
         marginY : {
           xs: 3,
@@ -174,6 +175,7 @@ export const Details = ( carddetails : any ,  ) => {
           }}>
             <a href={carddetails.carddetails.web_url}  target="_blank"  rel="noopener noreferrer" >VISIT LINK</a> 
           </Typography>
+        </Box>
         </Box>
      </>
      }
