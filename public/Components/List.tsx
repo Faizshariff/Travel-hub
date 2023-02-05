@@ -69,7 +69,7 @@ type Props = {
         }} >
           <button onClick={()=> { Setdisplay(true); Settype('restaurants') ;  } }>
           <Image src={icon1} className="icon-img relative left-6"  alt={"restaurent"} ></Image>
-          <p className="cat-txt" >RESTAURENTS</p>
+          <p className="cat-txt" >RESTAURANTS</p>
           </button>
         </Grid>
         <Grid item xs={4} sx={{
@@ -173,7 +173,7 @@ type Props = {
         }} >
           <button onClick={()=>  { Setdisplay(true); Settype('restaurants') ;  } }>
           <Image src={icon1} className="icon-img"  alt={"restaurent"} ></Image>
-          <p className="cat-txt " >RESTAURENTS</p>
+          <p className="cat-txt " >RESTAURANTS</p>
           </button>
         </Grid>
         <Grid item xs={4} sx={{

@@ -28,8 +28,8 @@ import {  CircularProgress } from "@mui/material";
  
   export const Gmap = ({  userlat , userlong , status , places , Setmobile}  : locationprops ) => {
  
-   const [destlat, Setdestlat] = useState<any | null>(null);
-   const [destlong ,Setdestlong] = useState<any | null>(null);
+   const [destlat, Setdestlat] = useState<any | null>(userlat);
+   const [destlong ,Setdestlong] = useState<any | null>(userlong);
    const [locationiq, Setlocationiq] = useState<any | null>([]);
    const [location,Setlocation] = useState<any>(null);
    const [mapState, SetmapState] = useState(true)
@@ -42,7 +42,7 @@ import {  CircularProgress } from "@mui/material";
     else{
     handleClick3()
     }
-   },[destlat , destlong , userlat , userlong])
+   },[destlat , destlong , userlat , userlong ])
 
   
 
@@ -68,6 +68,7 @@ import {  CircularProgress } from "@mui/material";
   }, [places, Setdestlat, Setdestlong]);
 
    const handleClick3 = () => {
+
     getdirections(userlat , userlong , destlat, destlong)
       .then((dataset) => {
         Setlocationiq(dataset);
