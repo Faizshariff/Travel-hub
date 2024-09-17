@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,500;0,700;1,500;1,600&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+* {
+  box-sizing: border-box;
+  font-family: 'Chakra Petch', sans-serif;
+  letter-spacing: 2.5px; 
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden !important;
+    overflow: hidden;
+    position: fixed;
+  }
+  body {
+    color: white;
+    background: black;
+    overflow: hidden;
+    position: fixed;
+  }
+}
+
+
+@layer utilities {
+  #main-content-hide{
+    display: none;
+  }
+  #page{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden !important;
+    overflow: hidden;
+    font-family: 'Chakra Petch', sans-serif;
+    letter-spacing: 2.5px; 
+    position: fixed;
+  }
+  .responsive-show{
+    display: block;
+    z-index: 10;
+  }
+  .responsive-hide{
+    display: none;
+  }
+  .left-50p{
+    left: 50%;
+  }
+  .left-40p{
+    left: 40%;
+  }
+  .top-15p{
+    top:15%;
+  }
+  .left-15p{
+    left: 15%;
+  }
+  .left-8p{
+    left: 8%;
+  }
+  .left-5p{
+    left: 5%;
+  }
+  .top-5vh{
+    top: 5vh;
+  }
+  .top-5px{
+    top: 0.4vh;
+  }
+  #input-div{
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    opacity: 0.96;
+    border-radius: 8px;
+    z-index: 1;
+    position: fixed;
+  }
+
+ 
+  #input-cont{
+    font-size: 2vh;
+    padding: 2vh;
+	border-radius: 8px;
+  color: black;
+  box-shadow: rgba(217, 217, 217, 0.2) 0px 8px 24px;
+  background-color: rgba(255, 255, 255, 0.3);
+  font-family: 'Chakra Petch', sans-serif;
+  letter-spacing: 2.5px; 
+  -webkit-backdrop-filter: blur(100%);
+  backdrop-filter: blur(100%);
+  margin-left: 1.5vw;
+  }
+  #input-cont:focus{
+    border: none;
+    outline: none;
+    opacity: 0.95;
+    background-color: whitesmoke;
+    margin-bottom: 1vh;
+  }
+  #input-cont:active{
+    border: none;
+    outline: none;
+    opacity: 0.95;
+    background-color: whitesmoke;
+  }
+
+  #input-cont::placeholder{
+    color: black;
+    opacity: 1;
+  }
+  .w-80vw-card{
+    width: 80vw;
+  }
+  .w-40vw{
+    width: 40vw;
+    padding-right: 5vw !important;
+  }
+  .w-70vw{
+    width: 70vw;
+    padding-right: 5vw !important;
+  }
+  .w-80vw{
+    width: 80vw;
+    padding-right: 10vw !important;
+  }
+  .zindex{
+    z-index: 10;
+    color: black;
+  }
+
+  .zindex3{
+    z-index: 310;
+  }
+
+  .list-styles{
+    height: 75vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 30vw;
+    background-color:transparent;
+    -webkit-backdrop-filter: blur(100%);
+    backdrop-filter: blur(100%);
+    padding-right: 5vw;
+    top: 0;
+    margin-top: 22vh;
+
+  }
+  .list-div{
+    width: 35vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(70px);
+backdrop-filter: blur(70px);
+opacity: 0.90;
+    top: 0;
+  }
+
+  #pcbar-show{
+    transform: translateX(0);
+    transition: ease-in-out 1.5s ;
+  }
+  #pcbar-hide{
+    transform: translateX(-90%);
+    transition: ease-in-out 1.5s ;
+  }
+  #pc-list-button{
+    position: absolute;
+    top: 50vh;
+    left: 32vw;
+  }
+
+  .svg_icons {
+    transform: scale(2);
+  }
+
+  .list-mob-styles{
+    height: 65vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100vw;
+   background: transparent;
+    padding-right: 5vw;
+    margin-top: 30vh;
+    display: block;
+  }
+  .list-mob-div{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(70px);
+backdrop-filter: blur(70px);
+opacity: 1;
+top: 65vh;
+border-top-right-radius: 50px;
+border-top-left-radius: 50px;
+display: block;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  .svg_icons2{
+    transform: scale(3) rotate(90deg);
+  }
+
+  #mob-list-button{
+    position: absolute;
+    top: 3vh;
+  }
+
+  #mobbar-show{
+    transform: translateY(-60%);
+    transition: ease-in-out 1.5s ;
+  }
+  #mobbar-hide{
+    transform: translateY(0%);
+    transition: ease-in-out 1.5s ;
+  }
+
+  .zindex2{
+    z-index: 100;
+  }
+  .zindex3{
+    z-index: 300;
+    position: fixed;
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .mob-categories{
+    top: 10vh;
+    position:absolute;
+  }
+
+  .left-50vw{
+    left: 50vw;
+  }
+
+  .left-45vw{
+    left: 45vw;
+  }
+
+  .left-30vw{
+    left: 30vw;
+  }
+
+  .left-10vw{
+    left: 10vw;
+  }
+
+  .left-6vw{
+    left: 6vw;
+  }
+
+  .heading{
+    font-size: 2.8vh;
+  }
+  
+  .cat-txt{
+    font-size: 1.5vh;
+    color: grey;
+  }
+
+  .icon-img{
+    transform: scale(0.7);
+  }
+
+
+
+  .h-70vh{
+   
+     max-height: 70vh;
+  } 
+  
+  .h-65vh{
+    max-height: 65vh;
+  } 
+  
+  .h-80vh{
+    max-height: 80vh;
+  }
+
+  .w-30p{
+    width: 30%;
+  }
+  .w-40vw-auto{
+    width: 40vw;
+  }
+  .w-70vw-auto{
+    width: 70vw;
+  }
+  .w-80vw-auto{
+    width: 80vw;
+  }
+  .p-b-10vh{
+    padding-bottom: 10vh;
+  }
+  .p-b-5vh{
+    padding-bottom: 5vh;
+  }
+  .h-100vw{
+    height: 100vw;
+  }
+  .left-80vw{
+    left: 80vw;
+  }
+
+  #modal-show{
+    display: block;
+  }
+  
+  #modal-hide{
+    display: none;
+  }
+  .pc-modal-close{
+    left: 27vw;
+    top: 5vh;
+    position: fixed;
+  }
+  .mob-modal-close{
+    position: fixed;
+    top: 5vh;
+    left: 45vw;
+  }
+  .tab-modal-close{
+    position: fixed;
+    top: 5vh;
+    left: 45vw;
+  }
+  .details-mob{
+    top: 0vh;
+    height: 95vh;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+  }
+  .details-tab{
+    top: 0vh;
+    height: 95vh;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+  }  
+  .details-pc{
+    top: 0vh;
+    height: 100vh;
+    border-radius: 0px;
+  }
+  .details-scroll{
+    max-height: 50vh !important;
+    padding-bottom: 10vh;
+  }
+}
