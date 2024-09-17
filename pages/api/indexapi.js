@@ -29,7 +29,7 @@ export const getweather = async (lat, long) => {
   if (lat == null || long == null) {
     return;
   } else {
-    const weatherurl = `http://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_REACT_APP_WEATHER_API_KEY}&q=${lat},${long}&aqi=no`;
+    const weatherurl = `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_REACT_APP_WEATHER_API_KEY}&q=${lat},${long}&aqi=no`;
 
       try {
         const { data } = await axios.get(weatherurl);
