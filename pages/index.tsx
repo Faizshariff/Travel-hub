@@ -9,7 +9,6 @@ import axios from 'axios'
 
  // AUTO COMPLETE FETCH REQUEST
 
-
  let autoaddress = '';
 
  const Autocomplete = async ( ) => {
