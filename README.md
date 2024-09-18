@@ -82,6 +82,15 @@ This web application is a modern feature-rich GMaps clone built with Next.js, ai
 This is the main entry point of application or parent component 
 
 
+## Key Fixes & Improvements
+
+### ⭐ Debouncing API Calls in Search
+To optimize the search functionality and prevent exceeding the API request limits, I implemented **debouncing** in the `Search.tsx` component. Previously, continuous API calls were made as the user typed in the search bar, resulting in 429 errors (api call rate limit exceeded). With debouncing, the API call is now delayed by 500ms, ensuring more efficient handling of user input and reducing excessive API requests.
+
+### ⭐ Custom Directions Rendering in Mapbox
+During the time of developement of this project Mapbox didnt come with native directions feature. To resolve this, I utilized the **Location IQ API** to fetch route data and then manually map the directions on the map using Mapbox's **Layer** functionality. The start and end locations are passed to the API, and the response is used to draw the route on the map, providing a seamless directions experience.
+
+
 
 ### <h1>Installation</h1>
 
