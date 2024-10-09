@@ -1,7 +1,7 @@
 ![BANNER](https://github.com/user-attachments/assets/bd775bda-7953-42bb-af5f-a66c22468243)
 <!--
 Hi! This is an easter egg.
-Congratulations you found the first one!
+Congratulations you're the one!
 -->
 
 <!-- # 👀 Hi stranger! 👋🏻 -->
